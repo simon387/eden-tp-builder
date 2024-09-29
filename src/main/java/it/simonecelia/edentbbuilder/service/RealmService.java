@@ -10,6 +10,10 @@ import java.util.List;
 public class RealmService {
 
 	public List<Realm> findAllRealms () {
-		return Realm.listAll ();  // Usa il metodo listAll di Panache per trovare tutti i record
+		return Realm.listAll ();
+	}
+
+	public Realm getByName ( String name ) {
+		return Realm.find ( "name", name ).firstResult ();
 	}
 }

@@ -7,7 +7,7 @@ import jakarta.persistence.Entity;
 @Entity
 public class Realm extends PanacheEntity {
 
-	public String name;
+	private String name;
 
 	public Realm ( String name ) {
 		this.name = name;
@@ -15,5 +15,13 @@ public class Realm extends PanacheEntity {
 
 	public Realm () {
 
+	}
+
+	public String getName () {
+		return name;
+	}
+
+	public void setName ( String name ) {
+		this.name = name;
 	}
 }
