@@ -76,6 +76,8 @@ public class StartupDataInserter {
 			entityManager.persist ( crushing );
 			var studded = new ItemType ( "Studded" );
 			entityManager.persist ( studded );
+			var staff = new ItemType ( "Staff" );
+			entityManager.persist ( staff );
 			//TODO
 		}
 
@@ -118,5 +120,13 @@ public class StartupDataInserter {
 			var distance = new Slot ( "Distance" );
 			entityManager.persist ( distance );
 		}
+
+//		query = entityManager.createQuery ( "SELECT COUNT(s) FROM Stat s" );
+//		count = (Long) query.getSingleResult ();
+//
+//		if ( count == 0 ) {
+//			var dex = new Stat ( "Dexterity" );
+//			entityManager.persist ( dex );
+//		}
 	}
 }
