@@ -52,6 +52,8 @@ public class StartupDataInserter {
 			//TODO
 			var runemaster = new Class_ ( "Runemaster", realmService.getByName ( "Midgard" ) );
 			entityManager.persist ( runemaster );
+			//Todo
+			var any = new Class_ ( "Any", realmService.getByName ( "Any" ) );
 		}
 	}
 }
