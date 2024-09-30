@@ -17,4 +17,13 @@ public enum CaPBonusEnum {
 	public String getName () {
 		return name;
 	}
+
+	public static CaPBonusEnum fromStringIgnoreCase ( String name ) {
+		for ( var bonus : CaPBonusEnum.values () ) {
+			if ( bonus.getName ().equalsIgnoreCase ( name ) ) {
+				return bonus;
+			}
+		}
+		throw new IllegalArgumentException ( "No enum constant for value: " + name );
+	}
 }
