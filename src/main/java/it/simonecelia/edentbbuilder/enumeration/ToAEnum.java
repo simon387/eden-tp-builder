@@ -9,6 +9,8 @@ public enum ToAEnum {
 	CASTING_SPEED ("Casting Speed"),
 	SPELL_DURATION ("Spell Duration"),
 	MELEE_DAMAGE ("Melee Damage"),
+	SPELL_RANGE ("Spell Range"),
+	SPELL_LEVEL ("Spell Level"),
 	;
 
 	private final String name;
