@@ -1,0 +1,19 @@
+package it.simonecelia.edentbbuilder.enumeration;
+
+public enum ToAEnum {
+	ALL_FOCUS_LEVELS ("AlL Focus Levels"),
+	POWER_POOL ("Power Pool"),
+	SPELL_DAMAGE ("Spell Damage"),
+	ARCANE_SYPHON ("Arcane Syphon"),
+	;
+
+	private final String name;
+
+	ToAEnum ( String name ) {
+		this.name = name;
+	}
+
+	public String getName () {
+		return name;
+	}
+}

@@ -14,4 +14,20 @@ public class Stat implements Serializable {
 	private StatEnum stat;
 
 	private int value;
+
+	public StatEnum getStat () {
+		return stat;
+	}
+
+	public void setStat ( StatEnum stat ) {
+		this.stat = stat;
+	}
+
+	public int getValue () {
+		return value;
+	}
+
+	public void setValue ( int value ) {
+		this.value = value;
+	}
 }
