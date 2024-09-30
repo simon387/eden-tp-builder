@@ -23,6 +23,8 @@ public class MagicalBonuses implements Serializable {
 
 	private List<Resist> resists;
 
+	private List<Other> others;
+
 	public List<Stat> getStats () {
 		return stats;
 	}
@@ -69,5 +71,13 @@ public class MagicalBonuses implements Serializable {
 
 	public void setResists ( List<Resist> resists ) {
 		this.resists = resists;
+	}
+
+	public List<Other> getOthers () {
+		return others;
+	}
+
+	public void setOthers ( List<Other> others ) {
+		this.others = others;
 	}
 }
