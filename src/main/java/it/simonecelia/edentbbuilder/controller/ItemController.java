@@ -1,7 +1,6 @@
 package it.simonecelia.edentbbuilder.controller;
 
 import it.simonecelia.edentbbuilder.dto.ItemDTO;
-import it.simonecelia.edentbbuilder.entity.Item;
 import it.simonecelia.edentbbuilder.service.ItemService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
@@ -22,8 +21,10 @@ public class ItemController {
 	@Produces ( MediaType.APPLICATION_JSON )
 	@Consumes ( MediaType.APPLICATION_JSON )
 	public Response createItem ( ItemDTO itemDTO ) {
-		// Crea e salva l'item usando il servizio
-		Item createdItem = itemService.create ( itemDTO );
+		var createdItem = itemService.create ( itemDTO );
+		if ( null == createdItem ) {
+			return Response.status ( Response.Status.BAD_REQUEST ).build ();
+		}
 
 		// Restituisci una risposta con il nuovo item creato
 		return Response.status ( Response.Status.CREATED ).entity ( createdItem ).build ();

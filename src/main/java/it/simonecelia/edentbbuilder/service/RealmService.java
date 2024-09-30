@@ -14,6 +14,6 @@ public class RealmService {
 	}
 
 	public Realm getByName ( String name ) {
-		return Realm.find ( "name", name ).firstResult ();
+		return Realm.find ( "LOWER(name) = LOWER(?1)", name ).firstResult ();
 	}
 }

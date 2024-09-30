@@ -27,6 +27,8 @@ public class ItemDTO implements Serializable {
 
 	private List<StatDTO> stats;
 
+	private List<CapBonusDTO> capBonuses;
+
 	private List<ToADTO> toas;
 
 	private List<MeleeDTO> melees;
@@ -36,6 +38,12 @@ public class ItemDTO implements Serializable {
 	private List<ResistDTO> resists;
 
 	private List<OtherDTO> others;
+
+	private short model;
+
+	private boolean tradeable;
+
+	private float utility;
 
 	public String getName () {
 		return name;
@@ -101,6 +109,14 @@ public class ItemDTO implements Serializable {
 		this.stats = stats;
 	}
 
+	public List<CapBonusDTO> getCapBonuses () {
+		return capBonuses;
+	}
+
+	public void setCapBonuses ( List<CapBonusDTO> capBonuses ) {
+		this.capBonuses = capBonuses;
+	}
+
 	public List<ToADTO> getToas () {
 		return toas;
 	}
@@ -139,5 +155,29 @@ public class ItemDTO implements Serializable {
 
 	public void setOthers ( List<OtherDTO> others ) {
 		this.others = others;
+	}
+
+	public short getModel () {
+		return model;
+	}
+
+	public void setModel ( short model ) {
+		this.model = model;
+	}
+
+	public boolean isTradeable () {
+		return tradeable;
+	}
+
+	public void setTradeable ( boolean tradeable ) {
+		this.tradeable = tradeable;
+	}
+
+	public float getUtility () {
+		return utility;
+	}
+
+	public void setUtility ( float utility ) {
+		this.utility = utility;
 	}
 }
