@@ -1,5 +1,6 @@
 package it.simonecelia.edentbbuilder.controller;
 
+import io.quarkus.logging.Log;
 import it.simonecelia.edentbbuilder.entity.ItemType;
 import it.simonecelia.edentbbuilder.service.ItemTypeService;
 import jakarta.inject.Inject;
@@ -20,6 +21,7 @@ public class ItemTypeController {
 	@GET
 	@Produces ( MediaType.APPLICATION_JSON )
 	public List<ItemType> getAllItemTypes () {
+		Log.info ( "Calling getAllItemTypes" );
 		return itemTypeService.findAllItemTypes ();
 	}
 }

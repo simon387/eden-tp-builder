@@ -1,5 +1,6 @@
 package it.simonecelia.edentbbuilder.controller;
 
+import io.quarkus.logging.Log;
 import it.simonecelia.edentbbuilder.dto.ItemDTO;
 import it.simonecelia.edentbbuilder.service.ItemService;
 import jakarta.inject.Inject;
@@ -21,6 +22,7 @@ public class ItemController {
 	@Produces ( MediaType.APPLICATION_JSON )
 	@Consumes ( MediaType.APPLICATION_JSON )
 	public Response createItem ( ItemDTO itemDTO ) {
+		Log.info ( "Calling createItem" );
 		var createdItem = itemService.create ( itemDTO );
 		if ( null == createdItem ) {
 			return Response.status ( Response.Status.BAD_REQUEST ).build ();
