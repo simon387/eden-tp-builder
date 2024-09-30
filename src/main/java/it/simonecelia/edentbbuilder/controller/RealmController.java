@@ -1,5 +1,6 @@
 package it.simonecelia.edentbbuilder.controller;
 
+import io.quarkus.logging.Log;
 import it.simonecelia.edentbbuilder.entity.Realm;
 import it.simonecelia.edentbbuilder.service.RealmService;
 import jakarta.inject.Inject;
@@ -20,6 +21,7 @@ public class RealmController {
 	@GET
 	@Produces ( MediaType.APPLICATION_JSON )
 	public List<Realm> getAllRealms () {
+		Log.info ( "Calling getAllRealms" );
 		return realmService.findAllRealms ();
 	}
 }
