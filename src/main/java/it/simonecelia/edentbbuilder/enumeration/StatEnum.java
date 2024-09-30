@@ -4,6 +4,8 @@ public enum StatEnum {
 	DEXTERITY ( "Dexterity" ),
 	HEALTH ( "Health" ),
 	CONSTITUTION ( "Constitution" ),
+	ACUITY ( "Acuity" ),
+	ARMOR_FACTOR ( "Armor Factor" ),
 	;
 
 	private final String name;
