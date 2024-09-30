@@ -20,7 +20,7 @@ public class ItemController {
 
 	@POST
 	@Produces ( MediaType.APPLICATION_JSON )
-	@Consumes ( MediaType.APPLICATION_JSON ) // Specifica che il metodo consuma JSON
+	@Consumes ( MediaType.APPLICATION_JSON )
 	public Response createItem ( ItemDTO itemDTO ) {
 		// Crea e salva l'item usando il servizio
 		Item createdItem = itemService.create ( itemDTO );

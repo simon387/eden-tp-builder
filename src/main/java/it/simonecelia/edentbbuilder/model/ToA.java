@@ -13,7 +13,7 @@ public class ToA implements Serializable {
 
 	private ToAEnum toA;
 
-	private int value;
+	private short value;
 
 	public ToAEnum getToA () {
 		return toA;
@@ -27,7 +27,7 @@ public class ToA implements Serializable {
 		return value;
 	}
 
-	public void setValue ( int value ) {
+	public void setValue ( short value ) {
 		this.value = value;
 	}
 }

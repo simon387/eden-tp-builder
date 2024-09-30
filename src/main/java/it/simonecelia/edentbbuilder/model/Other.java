@@ -12,7 +12,8 @@ public class Other implements Serializable {
 	private static final long serialVersionUID = -2398035481703963172L;
 
 	private OtherEnum otherEnum;
-	private int value;
+
+	private short value;
 
 	public OtherEnum getOtherEnum () {
 		return otherEnum;
@@ -26,7 +27,7 @@ public class Other implements Serializable {
 		return value;
 	}
 
-	public void setValue ( int value ) {
+	public void setValue ( short value ) {
 		this.value = value;
 	}
 }

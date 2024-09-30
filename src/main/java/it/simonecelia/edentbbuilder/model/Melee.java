@@ -13,7 +13,7 @@ public class Melee implements Serializable {
 
 	private MeleeEnum melee;
 
-	private int value;
+	private short value;
 
 	public MeleeEnum getMelee () {
 		return melee;
@@ -27,7 +27,7 @@ public class Melee implements Serializable {
 		return value;
 	}
 
-	public void setValue ( int value ) {
+	public void setValue ( short value ) {
 		this.value = value;
 	}
 }

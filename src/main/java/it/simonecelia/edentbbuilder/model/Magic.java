@@ -13,7 +13,7 @@ public class Magic implements Serializable {
 
 	private MagicEnum magic;
 
-	private int value;
+	private short value;
 
 	public MagicEnum getMagic () {
 		return magic;
@@ -27,7 +27,7 @@ public class Magic implements Serializable {
 		return value;
 	}
 
-	public void setValue ( int value ) {
+	public void setValue ( short value ) {
 		this.value = value;
 	}
 }
