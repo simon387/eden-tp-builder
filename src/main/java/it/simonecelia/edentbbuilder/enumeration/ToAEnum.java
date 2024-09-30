@@ -5,6 +5,10 @@ public enum ToAEnum {
 	POWER_POOL ("Power Pool"),
 	SPELL_DAMAGE ("Spell Damage"),
 	ARCANE_SYPHON ("Arcane Syphon"),
+	RESIST_PIERCE ("Resist Pierce"),
+	CASTING_SPEED ("Casting Speed"),
+	SPELL_DURATION ("Spell Duration"),
+	MELEE_DAMAGE ("Melee Damage"),
 	;
 
 	private final String name;

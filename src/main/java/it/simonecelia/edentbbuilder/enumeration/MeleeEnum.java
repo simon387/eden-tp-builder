@@ -1,14 +1,12 @@
 package it.simonecelia.edentbbuilder.enumeration;
 
-public enum StatEnum {
-	DEXTERITY ( "Dexterity" ),
-	HEALTH ( "Health" ),
-	CONSTITUTION ( "Constitution" ),
+public enum MeleeEnum {
+	ALL_SKILLS ( "All Skills" ),
 	;
 
 	private final String name;
 
-	StatEnum ( String name ) {
+	MeleeEnum ( String name ) {
 		this.name = name;
 	}
 
@@ -16,3 +14,4 @@ public enum StatEnum {
 		return name;
 	}
 }
+

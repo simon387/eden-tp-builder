@@ -15,6 +15,10 @@ public class MagicalBonuses implements Serializable {
 
 	private List<ToA> toAs;
 
+	private List<Melee> melees;
+
+	private List<Magic> magics;
+
 	private List<CapBonus> capBonuses;
 
 	private List<Resist> resists;
@@ -33,6 +37,22 @@ public class MagicalBonuses implements Serializable {
 
 	public void setToAs ( List<ToA> toAs ) {
 		this.toAs = toAs;
+	}
+
+	public List<Melee> getMelees () {
+		return melees;
+	}
+
+	public void setMelees ( List<Melee> melees ) {
+		this.melees = melees;
+	}
+
+	public List<Magic> getMagics () {
+		return magics;
+	}
+
+	public void setMagics ( List<Magic> magics ) {
+		this.magics = magics;
 	}
 
 	public List<CapBonus> getCapBonuses () {
