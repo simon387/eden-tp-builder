@@ -13,7 +13,7 @@ public class CapBonus implements Serializable {
 
 	private CaPBonusEnum capBonus;
 
-	private int value;
+	private short value;
 
 	public CaPBonusEnum getCapBonus () {
 		return capBonus;
@@ -27,7 +27,7 @@ public class CapBonus implements Serializable {
 		return value;
 	}
 
-	public void setValue ( int value ) {
+	public void setValue ( short value ) {
 		this.value = value;
 	}
 }

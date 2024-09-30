@@ -13,7 +13,7 @@ public class Resist implements Serializable {
 
 	private ResistEnum resist;
 
-	private int value;
+	private short value;
 
 	public ResistEnum getResist () {
 		return resist;
@@ -27,7 +27,7 @@ public class Resist implements Serializable {
 		return value;
 	}
 
-	public void setValue ( int value ) {
+	public void setValue ( short value ) {
 		this.value = value;
 	}
 }

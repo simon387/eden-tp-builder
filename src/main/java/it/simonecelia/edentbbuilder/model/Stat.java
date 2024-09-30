@@ -13,7 +13,7 @@ public class Stat implements Serializable {
 
 	private StatEnum stat;
 
-	private int value;
+	private short value;
 
 	public StatEnum getStat () {
 		return stat;
@@ -27,7 +27,7 @@ public class Stat implements Serializable {
 		return value;
 	}
 
-	public void setValue ( int value ) {
+	public void setValue ( short value ) {
 		this.value = value;
 	}
 }
