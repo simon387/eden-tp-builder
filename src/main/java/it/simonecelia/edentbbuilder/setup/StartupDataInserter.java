@@ -78,6 +78,8 @@ public class StartupDataInserter {
 			entityManager.persist ( studded );
 			var staff = new ItemType ( "Staff" );
 			entityManager.persist ( staff );
+			var magical = new ItemType ( "Magical" );
+			entityManager.persist ( magical );
 			//TODO
 		}
 
