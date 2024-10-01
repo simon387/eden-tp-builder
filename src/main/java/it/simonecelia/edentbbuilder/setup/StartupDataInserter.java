@@ -123,12 +123,5 @@ public class StartupDataInserter {
 			entityManager.persist ( distance );
 		}
 
-//		query = entityManager.createQuery ( "SELECT COUNT(s) FROM Stat s" );
-//		count = (Long) query.getSingleResult ();
-//
-//		if ( count == 0 ) {
-//			var dex = new Stat ( "Dexterity" );
-//			entityManager.persist ( dex );
-//		}
 	}
 }
