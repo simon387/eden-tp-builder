@@ -10,11 +10,11 @@ import jakarta.persistence.ManyToOne;
 @SuppressWarnings ( "unused" )
 public class Class_ extends PanacheEntity {
 
-	private String name;
-
 	@ManyToOne
 	@JoinColumn ( name = "realm_id" )
 	public Realm realm;
+
+	private String name;
 
 	public Class_ ( String name, Realm realm ) {
 		this.name = name;
