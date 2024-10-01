@@ -1,16 +1,16 @@
 package it.simonecelia.edentbbuilder.service;
 
 import it.simonecelia.edentbbuilder.enumeration.EnumUtils;
-import it.simonecelia.edentbbuilder.enumeration.StatEnum;
+import it.simonecelia.edentbbuilder.enumeration.ResistEnum;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.List;
 
 
 @ApplicationScoped
-public class StatSevice {
+public class ResistService {
 
-	public List<String> getAllStatsNames () {
-		return EnumUtils.getEnumNames ( StatEnum.class );
+	public List<String> getAllResistNames () {
+		return EnumUtils.getEnumNames ( ResistEnum.class );
 	}
 }
