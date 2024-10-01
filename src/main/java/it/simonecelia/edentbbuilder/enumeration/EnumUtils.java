@@ -1,5 +1,9 @@
 package it.simonecelia.edentbbuilder.enumeration;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class EnumUtils {
 
 	public static <E extends Enum<E>> E fromStringIgnoreCase ( Class<E> enumClass, String name ) {
@@ -15,5 +19,22 @@ public class EnumUtils {
 			}
 		}
 		throw new IllegalArgumentException ( "No enum constant for value: " + name );
+	}
+
+	public static <E extends Enum<E>> List<String> getEnumNames ( Class<E> enumClass ) {
+		List<String> names = new ArrayList<> ();
+
+		for ( E enumConstant : enumClass.getEnumConstants () ) {
+			try {
+				// Usa la riflessione per chiamare il metodo getName() su ogni enum
+				var getNameMethod = enumClass.getMethod ( "getName" );
+				var enumName = (String) getNameMethod.invoke ( enumConstant );
+				names.add ( enumName );
+			} catch ( Exception e ) {
+				throw new IllegalArgumentException ( "Enum class must have a getName() method", e );
+			}
+		}
+
+		return names;
 	}
 }
