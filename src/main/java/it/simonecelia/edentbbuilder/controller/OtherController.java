@@ -11,7 +11,7 @@ import jakarta.ws.rs.core.MediaType;
 import java.util.List;
 
 
-@Path ( "/melee" )
+@Path ( "/other" )
 public class OtherController {
 
 	@Inject
