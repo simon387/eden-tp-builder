@@ -1,5 +1,7 @@
 package it.simonecelia.edentbbuilder.service;
 
+import it.simonecelia.edentbbuilder.enumeration.CaPBonusEnum;
+import it.simonecelia.edentbbuilder.enumeration.ResistEnum;
 import it.simonecelia.edentbbuilder.enumeration.StatEnum;
 import it.simonecelia.edentbbuilder.model.MagicalBonuses;
 import it.simonecelia.edentbbuilder.model.Report;
@@ -76,7 +78,7 @@ public class ReportService {
 		totalMagicalBonuses.add ( character.getArms ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getChest ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getCloak ().getMagicalBonuses () );
-//		totalMagicalBonuses.add ( character.getDistance ().getMagicalBonuses () );
+		//		totalMagicalBonuses.add ( character.getDistance ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getBelt ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getFeet ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getHands ().getMagicalBonuses () );
@@ -89,35 +91,103 @@ public class ReportService {
 		totalMagicalBonuses.add ( character.getLegs ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getMythirian ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getNecklace ().getMagicalBonuses () );
-//		totalMagicalBonuses.add ( character.getOffHand ().getMagicalBonuses () );
-//		totalMagicalBonuses.add ( character.getOneHand ().getMagicalBonuses () );
+		//		totalMagicalBonuses.add ( character.getOffHand ().getMagicalBonuses () );
+		//		totalMagicalBonuses.add ( character.getOneHand ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getTwoHand ().getMagicalBonuses () );
 		//TODO
 
 		for ( var t : totalMagicalBonuses ) {
-			if (null == t.getStats ()) {
-				continue;
-			}
-			for ( var s : t.getStats () ) {
-				switch ( s.getStat () ) {
-				case StatEnum.CONSTITUTION:
-					constitution += (short) s.getValue ();
-					break;
-				case StatEnum.DEXTERITY:
-					dexterity += (short) s.getValue ();
-					break;
-				case StatEnum.ACUITY:
-					piety += (short) s.getValue ();
-					break;
-				case StatEnum.HEALTH:
-					hits += (short) s.getValue ();
-					break;
-				case StatEnum.ARMOR_FACTOR:
-					armorFactor += (short) s.getValue ();
-					break;
+			if ( null != t.getStats () ) {
+				for ( var s : t.getStats () ) {
+					switch ( s.getStat () ) {
+					case StatEnum.CONSTITUTION:
+						constitution += (short) s.getValue ();
+						break;
+					case StatEnum.DEXTERITY:
+						dexterity += (short) s.getValue ();
+						break;
+					case StatEnum.ACUITY:
+						piety += (short) s.getValue ();
+						break;
+					case StatEnum.HEALTH:
+						hits += (short) s.getValue ();
+						break;
+					case StatEnum.ARMOR_FACTOR:
+						armorFactor += (short) s.getValue ();
+						break;
+					}
 				}
 			}
-			//altro
+			if ( null != t.getResists () ) {
+				for ( var r : t.getResists () ) {
+					switch ( r.getResist () ) {
+					case ResistEnum.BODY:
+						body += (short) r.getValue ();
+						break;
+					case ResistEnum.SPIRIT:
+						spirit += (short) r.getValue ();
+						break;
+					case ResistEnum.ENERGY:
+						energy += (short) r.getValue ();
+						break;
+					case ResistEnum.HEAT:
+						heat += (short) r.getValue ();
+						break;
+					case ResistEnum.COLD:
+						cold += (short) r.getValue ();
+						break;
+					case ResistEnum.MATTER:
+						matter += (short) r.getValue ();
+						break;
+					case ResistEnum.CRUSH:
+						crush += (short) r.getValue ();
+						break;
+					case ResistEnum.THRUST:
+						thrust += (short) r.getValue ();
+						break;
+					case ResistEnum.SLASH:
+						slash += (short) r.getValue ();
+						break;
+					}
+				}
+			}
+			if ( null != t.getCapBonuses () ) {
+				for ( var c : t.getCapBonuses () ) {
+					switch ( c.getCapBonus () ) {
+					case CaPBonusEnum.ACUITY:
+						pietyCap += (short) c.getValue ();
+						if ( pietyCap > 26 ) {
+							pietyCap = 26;
+						}
+						break;
+					case CaPBonusEnum.CONSTITUTION:
+						constitutionCap += (short) c.getValue ();
+						if ( constitutionCap > 26 ) {
+							constitutionCap = 26;
+						}
+						break;
+					case CaPBonusEnum.MAX_HEALTH:
+						hitsCap += (short) c.getValue ();
+						if ( hitsCap > 200 ) {
+							hitsCap = 200;
+						}
+						break;
+					case CaPBonusEnum.DEXTERITY:
+						dexterityCap += (short) c.getValue ();
+						if ( dexterityCap > 26 ) {
+							dexterityCap = 26;
+						}
+						break;
+					case CaPBonusEnum.POWER_POOL:
+						powerCap += (short) c.getValue ();
+						if ( powerCap > 25 ) {
+							powerCap = 25;
+						}
+						break;
+					}
+				}
+			}
+
 		}
 
 		System.out.println ( "\nStatistic" );
