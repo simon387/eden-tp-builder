@@ -42,6 +42,10 @@ public class ItemService {
 		return Item.find ( "LOWER(name) = LOWER(?1)", name ).firstResult ();
 	}
 
+	public Item getById ( long id ) {
+		return Item.findById ( id );
+	}
+
 	public List<Item> getAllItems () {
 		return Item.listAll ();
 	}
@@ -141,5 +145,10 @@ public class ItemService {
 
 		item.persist ();
 		return item;
+	}
+
+	@Transactional
+	public boolean delete ( Long id ) {
+		return Item.deleteById ( id );
 	}
 }
