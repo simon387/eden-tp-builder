@@ -1,6 +1,7 @@
 package it.simonecelia.edentbbuilder.enumeration;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -34,6 +35,8 @@ public class EnumUtils {
 				throw new IllegalArgumentException ( "Enum class must have a getName() method", e );
 			}
 		}
+
+		Collections.sort ( names );
 
 		return names;
 	}

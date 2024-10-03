@@ -14,6 +14,6 @@ public class ItemTypeService {
 	}
 
 	public List<ItemType> findAllItemTypes () {
-		return ItemType.listAll ();
+		return ItemType.list("ORDER BY type ASC");
 	}
 }
