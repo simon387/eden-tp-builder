@@ -2,6 +2,7 @@ package it.simonecelia.edentbbuilder.service;
 
 import it.simonecelia.edentbbuilder.enumeration.CaPBonusEnum;
 import it.simonecelia.edentbbuilder.enumeration.MagicEnum;
+import it.simonecelia.edentbbuilder.enumeration.OtherEnum;
 import it.simonecelia.edentbbuilder.enumeration.ResistEnum;
 import it.simonecelia.edentbbuilder.enumeration.StatEnum;
 import it.simonecelia.edentbbuilder.enumeration.ToAEnum;
@@ -77,6 +78,10 @@ public class ReportService {
 		short resistPierce = 0;
 		short arcaneSiphone = 0;
 		short powerPool = 0;
+		// super caps
+		short mythicalAcuityCap = 0;
+		short mythicalConstitutionCap = 0;
+		short mythicalDexterityCap = 0;
 
 		//TODO solo 2H
 		List<MagicalBonuses> totalMagicalBonuses = new ArrayList<> ();
@@ -235,16 +240,39 @@ public class ReportService {
 					//TODO ne mancano...
 				}
 			}
-
+			if ( null != totBonus.getOthers () ) {
+				for ( var o : totBonus.getOthers () ) {
+					switch ( o.getOtherEnum () ) {
+					case OtherEnum.MYTHICAL_ACUITY_CAP:
+						mythicalAcuityCap += (short) o.getValue ();
+						if ( mythicalAcuityCap > 25 ) {
+							mythicalAcuityCap = 25;
+						}
+						break;
+					case OtherEnum.MYTHICAL_DEXTERITY_CAP:
+						mythicalDexterityCap += (short) o.getValue ();
+						if ( mythicalDexterityCap > 25 ) {
+							mythicalDexterityCap = 25;
+						}
+						break;
+					case OtherEnum.MYTHICAL_CONSTITUTION_CAP:
+						mythicalConstitutionCap += (short) o.getValue ();
+						if ( mythicalConstitutionCap > 25 ) {
+							mythicalConstitutionCap = 25;
+						}
+						break;
+					}
+				}
+			}
 		}
 
 		System.out.println ( "\nStatistic" );
 		//		System.out.println ( "Strength: " + strength + "/" + ( 75 + strengthCap ) );
-		System.out.println ( "Constitution: " + constitution + "/" + ( 75 + constitutionCap ) );
-		System.out.println ( "Dexterity: " + dexterity + "/" + ( 75 + dexterityCap ) );
+		System.out.println ( "Constitution: " + constitution + "/" + ( 75 + constitutionCap + mythicalConstitutionCap ) );
+		System.out.println ( "Dexterity: " + dexterity + "/" + ( 75 + dexterityCap + mythicalDexterityCap ) );
 		//		System.out.println ( "Quickness: " + quickness + "/" + ( 75 + quicknessCap ) );
 		//		System.out.println ( "Intelligence: " + intelligence + "/" + ( 75 + intelligenceCap ) );
-		System.out.println ( "Piety: " + piety + "/" + ( 75 + pietyCap ) );
+		System.out.println ( "Piety: " + piety + "/" + ( 75 + pietyCap + mythicalAcuityCap ) );
 		//		System.out.println ( "Charisma: " + charisma + "/" + ( 75 + charismaCap ) );
 		//		System.out.println ( "Empathy: " + empathy + "/" + ( 75 + empathyCap ) );
 		System.out.println ( "Hits: " + hits + "/" + ( 200 + hitsCap ) );
