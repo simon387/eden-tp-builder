@@ -9,6 +9,6 @@ import jakarta.enterprise.context.ApplicationScoped;
 public class ClassService {
 
 	public Class_ getByName ( String name ) {
-		return ItemType.find ( "LOWER(type) = LOWER(?1)", name ).firstResult ();
+		return ItemType.find ( "LOWER(name) = LOWER(?1)", name ).firstResult ();
 	}
 }
