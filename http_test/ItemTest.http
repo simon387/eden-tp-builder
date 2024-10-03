@@ -1,1 +1,8 @@
+### get alls
 GET {{baseURL}}item
+Content-Type: application/json
+
+
+### get by id
+GET {{baseURL}}item/1
+
