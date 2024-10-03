@@ -22,6 +22,11 @@ public class ReportController {
 	@Produces ( MediaType.APPLICATION_JSON )
 	public Response generateReport ( @PathParam ( "id" ) Long id ) {
 		Log.info ( "Calling generateReport" );
-		return reportService.generateByCharacterId ( id );
+		var report = reportService.generateByCharacterId ( id );
+		if ( report == null ) {
+			return Response.status ( Response.Status.NOT_FOUND ).build ();
+		} else {
+			return Response.status ( Response.Status.OK ).entity ( report ).build ();
+		}
 	}
 }
