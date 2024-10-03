@@ -2,6 +2,7 @@ package it.simonecelia.edentbbuilder.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import it.simonecelia.edentbbuilder.model.MagicalBonuses;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -47,6 +48,7 @@ public class Item extends PanacheEntity {
 
 	private int bonusLevel;
 
+	@Column (name = "magicalBonuses", length = 1024) // crea su mysql varbinary(1024), di default era 255 e rompeva
 	private MagicalBonuses magicalBonuses;
 
 	public String getName () {
