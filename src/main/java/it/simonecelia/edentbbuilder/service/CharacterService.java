@@ -22,8 +22,11 @@ public class CharacterService {
 		return Character_.listAll ();
 	}
 
-	public Character_ getCharaceterById ( long id ) {
-		return Character_.findById ( id );
+	public Character_ getCharaceterById ( long id ) { //TODO bug strano, va solo così per ora
+		return Character_.<Character_>listAll ().stream ()
+						.filter ( character -> character.id == id )  // Filtro per ID
+						.findFirst ()  // Trova il primo match
+						.orElse ( null );
 	}
 
 	@Transactional
