@@ -48,7 +48,7 @@ public class Item extends PanacheEntity {
 
 	private int bonusLevel;
 
-	@Column (name = "magicalBonuses", length = 1024) // crea su mysql varbinary(1024), di default era 255 e rompeva
+	@Column (name = "magicalBonuses", length = 2048) // crea su mysql varbinary(1024), di default era 255 e rompeva
 	private MagicalBonuses magicalBonuses;
 
 	public String getName () {
