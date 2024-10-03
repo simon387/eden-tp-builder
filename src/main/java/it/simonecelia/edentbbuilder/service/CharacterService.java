@@ -22,6 +22,10 @@ public class CharacterService {
 		return Character_.listAll ();
 	}
 
+	public Character_ getCharaceterById ( long id ) {
+		return Character_.findById ( id );
+	}
+
 	@Transactional
 	public Character_ create ( CharacterDTO characterDTO ) {
 		var character = new Character_ ();
