@@ -1,0 +1,4 @@
+### get alls
+GET {{baseURL}}character
+Content-Type: application/json
+
