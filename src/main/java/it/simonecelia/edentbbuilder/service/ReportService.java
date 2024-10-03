@@ -71,11 +71,33 @@ public class ReportService {
 		short spellDamage = 0;
 		short resistPierce = 0;
 
+		//TODO solo 2H
 		List<MagicalBonuses> totalMagicalBonuses = new ArrayList<> ();
 		totalMagicalBonuses.add ( character.getArms ().getMagicalBonuses () );
+		totalMagicalBonuses.add ( character.getChest ().getMagicalBonuses () );
+		totalMagicalBonuses.add ( character.getCloak ().getMagicalBonuses () );
+//		totalMagicalBonuses.add ( character.getDistance ().getMagicalBonuses () );
+		totalMagicalBonuses.add ( character.getBelt ().getMagicalBonuses () );
+		totalMagicalBonuses.add ( character.getFeet ().getMagicalBonuses () );
+		totalMagicalBonuses.add ( character.getHands ().getMagicalBonuses () );
+		totalMagicalBonuses.add ( character.getHelm ().getMagicalBonuses () );
+		totalMagicalBonuses.add ( character.getJewel ().getMagicalBonuses () );
+		totalMagicalBonuses.add ( character.getlBracer ().getMagicalBonuses () );
+		totalMagicalBonuses.add ( character.getrBracer ().getMagicalBonuses () );
+		totalMagicalBonuses.add ( character.getlRing ().getMagicalBonuses () );
+		totalMagicalBonuses.add ( character.getrRing ().getMagicalBonuses () );
+		totalMagicalBonuses.add ( character.getLegs ().getMagicalBonuses () );
+		totalMagicalBonuses.add ( character.getMythirian ().getMagicalBonuses () );
+		totalMagicalBonuses.add ( character.getNecklace ().getMagicalBonuses () );
+//		totalMagicalBonuses.add ( character.getOffHand ().getMagicalBonuses () );
+//		totalMagicalBonuses.add ( character.getOneHand ().getMagicalBonuses () );
+		totalMagicalBonuses.add ( character.getTwoHand ().getMagicalBonuses () );
 		//TODO
 
 		for ( var t : totalMagicalBonuses ) {
+			if (null == t.getStats ()) {
+				continue;
+			}
 			for ( var s : t.getStats () ) {
 				switch ( s.getStat () ) {
 				case StatEnum.CONSTITUTION:
