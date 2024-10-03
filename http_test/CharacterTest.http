@@ -2,3 +2,29 @@
 GET {{baseURL}}character
 Content-Type: application/json
 
+### create char with all the items
+
+POST {{baseURL}}character
+Content-Type: application/json
+
+{
+  "name": "Yashal",
+  "level": 50,
+  "className": "Runemaster",
+  "chest": "runed tuscarian vest",
+  "jewel": "gemstone of swirling energy",
+  "twoHanded": "staff of ageless power",
+  "legs": "shimmering silksteel rune knit padded pants",
+  "arms": "shimmering silksteel dragonsworn knit padded arms",
+  "helm": "cloth cap",
+  "belt": "shimmering satin sash",
+  "gloves": "shimmering silksteel dragonsworn knit padded gloves",
+  "cloak": "cape of legerdemain",
+  "mythirian": "dragon intellect mythirian",
+  "necklace": "dragonseye strand",
+  "lBracer": "gatekeeper bracer of anarchy",
+  "rBracer": "arcane shadow cuff",
+  "lRing": "slime coated ring",
+  "rRing": "director's ring of bedlam",
+  "boots": "aidon's slippers"
+}
