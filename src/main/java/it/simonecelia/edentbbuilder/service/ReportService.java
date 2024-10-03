@@ -1,8 +1,10 @@
 package it.simonecelia.edentbbuilder.service;
 
 import it.simonecelia.edentbbuilder.enumeration.CaPBonusEnum;
+import it.simonecelia.edentbbuilder.enumeration.MagicEnum;
 import it.simonecelia.edentbbuilder.enumeration.ResistEnum;
 import it.simonecelia.edentbbuilder.enumeration.StatEnum;
+import it.simonecelia.edentbbuilder.enumeration.ToAEnum;
 import it.simonecelia.edentbbuilder.model.MagicalBonuses;
 import it.simonecelia.edentbbuilder.model.Report;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -49,6 +51,7 @@ public class ReportService {
 		short hitsCap = 0;
 		short power = 0; // senza cap a 25 ?
 		short powerCap = 0;
+		short powerPoolCap = 0;
 		// resists
 		short body = 0;
 		short cold = 0;
@@ -72,6 +75,8 @@ public class ReportService {
 		short spellRange = 0;
 		short spellDamage = 0;
 		short resistPierce = 0;
+		short arcaneSiphone = 0;
+		short powerPool = 0;
 
 		//TODO solo 2H
 		List<MagicalBonuses> totalMagicalBonuses = new ArrayList<> ();
@@ -96,9 +101,9 @@ public class ReportService {
 		totalMagicalBonuses.add ( character.getTwoHand ().getMagicalBonuses () );
 		//TODO
 
-		for ( var t : totalMagicalBonuses ) {
-			if ( null != t.getStats () ) {
-				for ( var s : t.getStats () ) {
+		for ( var totBonus : totalMagicalBonuses ) {
+			if ( null != totBonus.getStats () ) {
+				for ( var s : totBonus.getStats () ) {
 					switch ( s.getStat () ) {
 					case StatEnum.CONSTITUTION:
 						constitution += (short) s.getValue ();
@@ -118,8 +123,8 @@ public class ReportService {
 					}
 				}
 			}
-			if ( null != t.getResists () ) {
-				for ( var r : t.getResists () ) {
+			if ( null != totBonus.getResists () ) {
+				for ( var r : totBonus.getResists () ) {
 					switch ( r.getResist () ) {
 					case ResistEnum.BODY:
 						body += (short) r.getValue ();
@@ -151,8 +156,8 @@ public class ReportService {
 					}
 				}
 			}
-			if ( null != t.getCapBonuses () ) {
-				for ( var c : t.getCapBonuses () ) {
+			if ( null != totBonus.getCapBonuses () ) {
+				for ( var c : totBonus.getCapBonuses () ) {
 					switch ( c.getCapBonus () ) {
 					case CaPBonusEnum.ACUITY:
 						pietyCap += (short) c.getValue ();
@@ -179,26 +184,69 @@ public class ReportService {
 						}
 						break;
 					case CaPBonusEnum.POWER_POOL:
-						powerCap += (short) c.getValue ();
-						if ( powerCap > 25 ) {
-							powerCap = 25;
+						powerPoolCap += (short) c.getValue ();
+						if ( powerPoolCap > 25 ) {
+							powerPoolCap = 25;
 						}
 						break;
 					}
+				}
+			}
+			// TODO niente melee skills
+			if ( null != totBonus.getMagics () ) {
+				for ( var m : totBonus.getMagics () ) {
+					switch ( m.getMagic () ) { //TODO niente linee singole
+					case MagicEnum.ALL_SKILLS:
+						allMagicSkills += (short) m.getValue ();
+					}
+				}
+			}
+			if ( null != totBonus.getToAs () ) {
+				for ( var t : totBonus.getToAs () ) {
+					switch ( t.getToA () ) { //TODO solo magici
+					//					case ToAEnum.ALL_FOCUS_LEVELS:
+					//
+					//					}
+					case ToAEnum.ARCANE_SYPHON:
+						arcaneSiphone += (short) t.getValue ();
+						//						if ( arcaneSiphone > 25 ) {
+						//							arcaneSiphone = 25;
+						//						}
+						break;
+					case ToAEnum.POWER_POOL:
+						powerPool += (short) t.getValue ();
+						break;
+					case ToAEnum.CASTING_SPEED:
+						castingSpeed += (short) t.getValue ();
+						break;
+					case ToAEnum.RESIST_PIERCE:
+						resistPierce += (short) t.getValue ();
+						break;
+					case ToAEnum.SPELL_DAMAGE:
+						spellDamage += (short) t.getValue ();
+						break;
+					case ToAEnum.SPELL_DURATION:
+						spellDuration += (short) t.getValue ();
+						break;
+					case ToAEnum.SPELL_RANGE:
+						spellRange += (short) t.getValue ();
+						break;
+					}
+					//TODO ne mancano...
 				}
 			}
 
 		}
 
 		System.out.println ( "\nStatistic" );
-		System.out.println ( "Strength: " + strength + "/" + ( 75 + strengthCap ) );
+		//		System.out.println ( "Strength: " + strength + "/" + ( 75 + strengthCap ) );
 		System.out.println ( "Constitution: " + constitution + "/" + ( 75 + constitutionCap ) );
 		System.out.println ( "Dexterity: " + dexterity + "/" + ( 75 + dexterityCap ) );
-		System.out.println ( "Quickness: " + quickness + "/" + ( 75 + quicknessCap ) );
-		System.out.println ( "Intelligence: " + intelligence + "/" + ( 75 + intelligenceCap ) );
+		//		System.out.println ( "Quickness: " + quickness + "/" + ( 75 + quicknessCap ) );
+		//		System.out.println ( "Intelligence: " + intelligence + "/" + ( 75 + intelligenceCap ) );
 		System.out.println ( "Piety: " + piety + "/" + ( 75 + pietyCap ) );
-		System.out.println ( "Charisma: " + charisma + "/" + ( 75 + charismaCap ) );
-		System.out.println ( "Empathy: " + empathy + "/" + ( 75 + empathyCap ) );
+		//		System.out.println ( "Charisma: " + charisma + "/" + ( 75 + charismaCap ) );
+		//		System.out.println ( "Empathy: " + empathy + "/" + ( 75 + empathyCap ) );
 		System.out.println ( "Hits: " + hits + "/" + ( 200 + hitsCap ) );
 		System.out.println ( "Power: " + power + "/" + ( 25 + powerCap ) );
 
@@ -217,7 +265,7 @@ public class ReportService {
 		System.out.println ( "All Magic Skill: " + allMagicSkills + "/11" );
 
 		System.out.println ( "\nTOA Bonus" );
-		System.out.println ( "Armour Factor: " + armorFactor + "/" + ( 50 + armorFactorCap ) );
+		System.out.println ( "Armour Factor: " + armorFactor + "/" + ( 25 + armorFactorCap ) );
 		System.out.println ( "Debuff Effectiveness: " + debuffEffectiveness + "/25" );
 		System.out.println ( "Buff Effectiveness: " + buffEffectiveness + "/25" );
 		System.out.println ( "Healing Effectiveness: " + healingEffectiveness + "/25" );
@@ -226,6 +274,8 @@ public class ReportService {
 		System.out.println ( "Spell Range: " + spellRange + "/10" );
 		System.out.println ( "Spell Damage: " + spellDamage + "/10" );
 		System.out.println ( "Resist Pierce: " + resistPierce + "/10" );
+		System.out.println ( "Arcane Siphone: " + arcaneSiphone + "/25" );
+		System.out.println ( "Power Pool: " + powerPool + "/" + ( 25 + powerPoolCap ) );
 
 		return report;
 	}
