@@ -23,104 +23,117 @@ public class StartupDataInserter {
 
 	@Transactional
 	public void onStart ( @Observes StartupEvent ev ) {
-		var query = entityManager.createQuery ( "SELECT COUNT(r) FROM Realm r" );
-		var count = (Long) query.getSingleResult ();
+		var count = (Long) entityManager.createQuery ( "SELECT COUNT(r) FROM Realm r" ).getSingleResult ();
 
 		if ( count == 0 ) {
-			var albion = new Realm ( "Albion" );
-			var hibernia = new Realm ( "Hibernia" );
-			var midgard = new Realm ( "Midgard" );
-			var any = new Realm ( "Any" );
-
-			entityManager.persist ( albion );
-			entityManager.persist ( hibernia );
-			entityManager.persist ( midgard );
-			entityManager.persist ( any );
+			entityManager.persist ( new Realm ( "Albion" ) );
+			entityManager.persist ( new Realm ( "Hibernia" ) );
+			entityManager.persist ( new Realm ( "Midgard" ) );
+			entityManager.persist ( new Realm ( "Any" ) );
 		}
 
-		query = entityManager.createQuery ( "SELECT COUNT(c) FROM Class_ c" );
-		count = (Long) query.getSingleResult ();
+		count = (Long) entityManager.createQuery ( "SELECT COUNT(c) FROM Class_ c" ).getSingleResult ();
 
 		if ( count == 0 ) {
-			var armsman = new Class_ ( "Armsman", realmService.getByName ( "Albion" ) );
-			entityManager.persist ( armsman );
-			var mercenary = new Class_ ( "Mercenary", realmService.getByName ( "Albion" ) );
-			entityManager.persist ( mercenary );
-			var paladin = new Class_ ( "Paladin", realmService.getByName ( "Albion" ) );
-			entityManager.persist ( paladin );
-			//TODO
-			var bard = new Class_ ( "Bard", realmService.getByName ( "Hibernia" ) );
-			entityManager.persist ( bard );
-			//TODO
-			var runemaster = new Class_ ( "Runemaster", realmService.getByName ( "Midgard" ) );
-			entityManager.persist ( runemaster );
-			//Todo
-			var any = new Class_ ( "Any", realmService.getByName ( "Any" ) );
+			entityManager.persist ( new Class_ ( "Armsman", realmService.getByName ( "Albion" ) ) );
+			entityManager.persist ( new Class_ ( "Mercenary", realmService.getByName ( "Albion" ) ) );
+			entityManager.persist ( new Class_ ( "Paladin", realmService.getByName ( "Albion" ) ) );
+			entityManager.persist ( new Class_ ( "Reaver", realmService.getByName ( "Albion" ) ) );
+			entityManager.persist ( new Class_ ( "Cabalist", realmService.getByName ( "Albion" ) ) );
+			entityManager.persist ( new Class_ ( "Necromancer", realmService.getByName ( "Albion" ) ) );
+			entityManager.persist ( new Class_ ( "Sorcerer", realmService.getByName ( "Albion" ) ) );
+			entityManager.persist ( new Class_ ( "Theurgist", realmService.getByName ( "Albion" ) ) );
+			entityManager.persist ( new Class_ ( "Wizard", realmService.getByName ( "Albion" ) ) );
+			entityManager.persist ( new Class_ ( "Cleric", realmService.getByName ( "Albion" ) ) );
+			entityManager.persist ( new Class_ ( "Friar", realmService.getByName ( "Albion" ) ) );
+			entityManager.persist ( new Class_ ( "Heretic", realmService.getByName ( "Albion" ) ) );
+			entityManager.persist ( new Class_ ( "Infiltrator", realmService.getByName ( "Albion" ) ) );
+			entityManager.persist ( new Class_ ( "Minstrel", realmService.getByName ( "Albion" ) ) );
+			entityManager.persist ( new Class_ ( "Scout", realmService.getByName ( "Albion" ) ) );
+			entityManager.persist ( new Class_ ( "Blademaster", realmService.getByName ( "Hibernia" ) ) );
+			entityManager.persist ( new Class_ ( "Champion", realmService.getByName ( "Hibernia" ) ) );
+			entityManager.persist ( new Class_ ( "Hero", realmService.getByName ( "Hibernia" ) ) );
+			entityManager.persist ( new Class_ ( "Valewalker", realmService.getByName ( "Hibernia" ) ) );
+			entityManager.persist ( new Class_ ( "Animist", realmService.getByName ( "Hibernia" ) ) );
+			entityManager.persist ( new Class_ ( "Eldritch", realmService.getByName ( "Hibernia" ) ) );
+			entityManager.persist ( new Class_ ( "Enchanter", realmService.getByName ( "Hibernia" ) ) );
+			entityManager.persist ( new Class_ ( "Mentalist", realmService.getByName ( "Hibernia" ) ) );
+			entityManager.persist ( new Class_ ( "Bainshee", realmService.getByName ( "Hibernia" ) ) );
+			entityManager.persist ( new Class_ ( "Bard", realmService.getByName ( "Hibernia" ) ) );
+			entityManager.persist ( new Class_ ( "Druid", realmService.getByName ( "Hibernia" ) ) );
+			entityManager.persist ( new Class_ ( "Warden", realmService.getByName ( "Hibernia" ) ) );
+			entityManager.persist ( new Class_ ( "Nightshade", realmService.getByName ( "Hibernia" ) ) );
+			entityManager.persist ( new Class_ ( "Ranger", realmService.getByName ( "Hibernia" ) ) );
+			entityManager.persist ( new Class_ ( "Berserker", realmService.getByName ( "Midgard" ) ) );
+			entityManager.persist ( new Class_ ( "Savage", realmService.getByName ( "Midgard" ) ) );
+			entityManager.persist ( new Class_ ( "Skald", realmService.getByName ( "Midgard" ) ) );
+			entityManager.persist ( new Class_ ( "Valkyrie", realmService.getByName ( "Midgard" ) ) );
+			entityManager.persist ( new Class_ ( "Bonedancer", realmService.getByName ( "Midgard" ) ) );
+			entityManager.persist ( new Class_ ( "Runemaster", realmService.getByName ( "Midgard" ) ) );
+			entityManager.persist ( new Class_ ( "Spiritmaster", realmService.getByName ( "Midgard" ) ) );
+			entityManager.persist ( new Class_ ( "Healer", realmService.getByName ( "Midgard" ) ) );
+			entityManager.persist ( new Class_ ( "Shaman", realmService.getByName ( "Midgard" ) ) );
+			entityManager.persist ( new Class_ ( "Hunter", realmService.getByName ( "Midgard" ) ) );
+			entityManager.persist ( new Class_ ( "Shadowblade", realmService.getByName ( "Midgard" ) ) );
+			entityManager.persist ( new Class_ ( "Any", realmService.getByName ( "Any" ) ) );
 		}
 
-		query = entityManager.createQuery ( "SELECT COUNT(i) FROM ItemType i" );
-		count = (Long) query.getSingleResult ();
+		count = (Long) entityManager.createQuery ( "SELECT COUNT(i) FROM ItemType i" ).getSingleResult ();
 
 		if ( count == 0 ) {
-			var scale = new ItemType ( "Scale" );
-			entityManager.persist ( scale );
-			var chain = new ItemType ( "Chain" );
-			entityManager.persist ( chain );
-			var cloth = new ItemType ( "Cloth" );
-			entityManager.persist ( cloth );
-			var hammer = new ItemType ( "Hammer" );
-			entityManager.persist ( hammer );
-			var blunt = new ItemType ( "Blunt" );
-			entityManager.persist ( blunt );
-			var crushing = new ItemType ( "Crushing" );
-			entityManager.persist ( crushing );
-			var studded = new ItemType ( "Studded" );
-			entityManager.persist ( studded );
-			var staff = new ItemType ( "Staff" );
-			entityManager.persist ( staff );
-			var magical = new ItemType ( "Magical" );
-			entityManager.persist ( magical );
-			//TODO
+			entityManager.persist ( new ItemType ( "Axe" ) );
+			entityManager.persist ( new ItemType ( "Blunt" ) );
+			entityManager.persist ( new ItemType ( "Celtic Spear" ) );
+			entityManager.persist ( new ItemType ( "Chain" ) );
+			entityManager.persist ( new ItemType ( "Cloth" ) );
+			entityManager.persist ( new ItemType ( "Composite Bow" ) );
+			entityManager.persist ( new ItemType ( "Crushing" ) );
+			entityManager.persist ( new ItemType ( "Flexible" ) );
+			entityManager.persist ( new ItemType ( "Hammer" ) );
+			entityManager.persist ( new ItemType ( "Hand to Hand" ) );
+			entityManager.persist ( new ItemType ( "Large Weapons" ) );
+			entityManager.persist ( new ItemType ( "Leather" ) );
+			entityManager.persist ( new ItemType ( "Longbow" ) );
+			entityManager.persist ( new ItemType ( "Magical" ) );
+			entityManager.persist ( new ItemType ( "Plate" ) );
+			entityManager.persist ( new ItemType ( "Polearm" ) );
+			entityManager.persist ( new ItemType ( "Recursive Bow" ) );
+			entityManager.persist ( new ItemType ( "Reinforced" ) );
+			entityManager.persist ( new ItemType ( "Scale" ) );
+			entityManager.persist ( new ItemType ( "Scythe" ) );
+			entityManager.persist ( new ItemType ( "Shield" ) );
+			entityManager.persist ( new ItemType ( "Short Bow" ) );
+			entityManager.persist ( new ItemType ( "Slashing" ) );
+			entityManager.persist ( new ItemType ( "Spear" ) );
+			entityManager.persist ( new ItemType ( "Staff" ) );
+			entityManager.persist ( new ItemType ( "Studded" ) );
+			entityManager.persist ( new ItemType ( "Sword" ) );
+			entityManager.persist ( new ItemType ( "Thrust" ) );
+			entityManager.persist ( new ItemType ( "Two Handed" ) );
+			entityManager.persist ( new ItemType ( "Piercing" ) );
+			// ne mancherà qualcuno
 		}
 
-		query = entityManager.createQuery ( "SELECT COUNT(s) FROM Slot s" );
-		count = (Long) query.getSingleResult ();
+		count = (Long) entityManager.createQuery ( "SELECT COUNT(s) FROM Slot s" ).getSingleResult ();
 
 		if ( count == 0 ) {
-			var chest = new Slot ( "Chest" );
-			entityManager.persist ( chest );
-			var rightHand = new Slot ( "Right Hand" );
-			entityManager.persist ( rightHand );
-			var jewel = new Slot ( "Jewel" );
-			entityManager.persist ( jewel );
-			var twoHanded = new Slot ( "Two Handed" );
-			entityManager.persist ( twoHanded );
-			var legs = new Slot ( "Legs" );
-			entityManager.persist ( legs );
-			var leftHand = new Slot ( "Left Hand" );
-			entityManager.persist ( leftHand );
-			var arms = new Slot ( "Arms" );
-			entityManager.persist ( arms );
-			var helm = new Slot ( "Helm" );
-			entityManager.persist ( helm );
-			var belt = new Slot ( "Belt" );
-			entityManager.persist ( belt );
-			var gloves = new Slot ( "Gloves" );
-			entityManager.persist ( gloves );
-			var cloak = new Slot ( "Cloak" );
-			entityManager.persist ( cloak );
-			var mythirian = new Slot ( "Mythirian" );
-			entityManager.persist ( mythirian );
-			var necklace = new Slot ( "Necklace" );
-			entityManager.persist ( necklace );
-			var bracer = new Slot ( "Bracer" );
-			entityManager.persist ( bracer );
-			var ring = new Slot ( "Ring" );
-			entityManager.persist ( ring );
-			var boots = new Slot ( "Boots" );
-			entityManager.persist ( boots );
-			var distance = new Slot ( "Distance" );
-			entityManager.persist ( distance );
+			entityManager.persist ( new Slot ( "Chest" ) );
+			entityManager.persist ( new Slot ( "Right Hand" ) );
+			entityManager.persist ( new Slot ( "Jewel" ) );
+			entityManager.persist ( new Slot ( "Two Handed" ) );
+			entityManager.persist ( new Slot ( "Legs" ) );
+			entityManager.persist ( new Slot ( "Left Hand" ) );
+			entityManager.persist ( new Slot ( "Arms" ) );
+			entityManager.persist ( new Slot ( "Helm" ) );
+			entityManager.persist ( new Slot ( "Belt" ) );
+			entityManager.persist ( new Slot ( "Gloves" ) );
+			entityManager.persist ( new Slot ( "Cloak" ) );
+			entityManager.persist ( new Slot ( "Mythirian" ) );
+			entityManager.persist ( new Slot ( "Necklace" ) );
+			entityManager.persist ( new Slot ( "Bracer" ) );
+			entityManager.persist ( new Slot ( "Ring" ) );
+			entityManager.persist ( new Slot ( "Boots" ) );
+			entityManager.persist ( new Slot ( "Distance" ) );
 		}
 
 	}

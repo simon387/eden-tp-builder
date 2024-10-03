@@ -51,6 +51,10 @@ public class Character_ extends PanacheEntity {
 	private Item jewel;
 
 	@ManyToOne
+	@JoinColumn ( name = "belt_id" )
+	private Item belt;
+
+	@ManyToOne
 	@JoinColumn ( name = "l_ring_id" )
 	private Item lRing;
 
@@ -176,6 +180,14 @@ public class Character_ extends PanacheEntity {
 
 	public void setJewel ( Item jewel ) {
 		this.jewel = jewel;
+	}
+
+	public Item getBelt () {
+		return belt;
+	}
+
+	public void setBelt ( Item belt ) {
+		this.belt = belt;
 	}
 
 	public Item getlRing () {
