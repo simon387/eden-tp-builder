@@ -14,6 +14,6 @@ public class SlotService {
 	}
 
 	public List<Slot> findAllSlots () {
-		return Slot.listAll ();
+		return Slot.list("ORDER BY slot ASC");
 	}
 }
