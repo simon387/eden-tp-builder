@@ -6,3 +6,8 @@ Content-Type: application/json
 ### get by id
 GET {{baseURL}}item/1
 
+
+### delete by id
+DELETE {{baseURL}}item/1
+
+
