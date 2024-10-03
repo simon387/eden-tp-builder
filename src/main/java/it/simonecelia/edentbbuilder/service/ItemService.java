@@ -42,6 +42,10 @@ public class ItemService {
 		return Item.find ( "LOWER(name) = LOWER(?1)", name ).firstResult ();
 	}
 
+	public List<Item> getAllItems () {
+		return Item.listAll ();
+	}
+
 	@Transactional
 	public Item create ( ItemDTO itemDTO ) {
 		if ( getByName ( itemDTO.getName () ) != null ) {
