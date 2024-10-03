@@ -1,8 +1,13 @@
 package it.simonecelia.edentbbuilder.service;
 
+import it.simonecelia.edentbbuilder.enumeration.StatEnum;
+import it.simonecelia.edentbbuilder.model.MagicalBonuses;
 import it.simonecelia.edentbbuilder.model.Report;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @ApplicationScoped
@@ -65,6 +70,33 @@ public class ReportService {
 		short spellRange = 0;
 		short spellDamage = 0;
 		short resistPierce = 0;
+
+		List<MagicalBonuses> totalMagicalBonuses = new ArrayList<> ();
+		totalMagicalBonuses.add ( character.getArms ().getMagicalBonuses () );
+		//TODO
+
+		for ( var t : totalMagicalBonuses ) {
+			for ( var s : t.getStats () ) {
+				switch ( s.getStat () ) {
+				case StatEnum.CONSTITUTION:
+					constitution += (short) s.getValue ();
+					break;
+				case StatEnum.DEXTERITY:
+					dexterity += (short) s.getValue ();
+					break;
+				case StatEnum.ACUITY:
+					piety += (short) s.getValue ();
+					break;
+				case StatEnum.HEALTH:
+					hits += (short) s.getValue ();
+					break;
+				case StatEnum.ARMOR_FACTOR:
+					armorFactor += (short) s.getValue ();
+					break;
+				}
+			}
+			//altro
+		}
 
 		System.out.println ( "\nStatistic" );
 		System.out.println ( "Strength: " + strength + "/" + ( 75 + strengthCap ) );
