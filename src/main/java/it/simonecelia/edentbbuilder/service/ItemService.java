@@ -20,6 +20,7 @@ import it.simonecelia.edentbbuilder.model.Stat;
 import it.simonecelia.edentbbuilder.model.ToA;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,7 @@ public class ItemService {
 		return Item.find ( "LOWER(name) = LOWER(?1)", name ).firstResult ();
 	}
 
+	@Transactional
 	public Item create ( ItemDTO itemDTO ) {
 		if ( getByName ( itemDTO.getName () ) != null ) {
 			return null;
