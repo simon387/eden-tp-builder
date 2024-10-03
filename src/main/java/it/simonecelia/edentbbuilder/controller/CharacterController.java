@@ -2,7 +2,6 @@ package it.simonecelia.edentbbuilder.controller;
 
 import io.quarkus.logging.Log;
 import it.simonecelia.edentbbuilder.dto.CharacterDTO;
-import it.simonecelia.edentbbuilder.entity.Character_;
 import it.simonecelia.edentbbuilder.service.CharacterService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
@@ -13,8 +12,6 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-import java.util.List;
-
 
 @Path ( "/character" )
 public class CharacterController {
@@ -24,9 +21,14 @@ public class CharacterController {
 
 	@GET
 	@Produces ( MediaType.APPLICATION_JSON )
-	public List<Character_> getAllCharacters () {
+	public Response getAllCharacters () {
 		Log.info ( "Calling getAllCharacters" );
-		return characterService.getAllCharaceters ();
+		var chars = characterService.getAllCharaceters ();
+		if ( chars.isEmpty () ) {
+			return Response.status ( Response.Status.NOT_FOUND ).build ();
+		} else {
+			return Response.status ( Response.Status.OK ).entity ( chars ).build ();
+		}
 	}
 
 	@POST
