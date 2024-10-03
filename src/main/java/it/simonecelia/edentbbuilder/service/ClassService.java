@@ -1,7 +1,6 @@
 package it.simonecelia.edentbbuilder.service;
 
 import it.simonecelia.edentbbuilder.entity.Class_;
-import it.simonecelia.edentbbuilder.entity.ItemType;
 import jakarta.enterprise.context.ApplicationScoped;
 
 
@@ -9,6 +8,6 @@ import jakarta.enterprise.context.ApplicationScoped;
 public class ClassService {
 
 	public Class_ getByName ( String name ) {
-		return ItemType.find ( "LOWER(name) = LOWER(?1)", name ).firstResult ();
+		return Class_.find ( "LOWER(name) = LOWER(?1)", name ).firstResult ();
 	}
 }
