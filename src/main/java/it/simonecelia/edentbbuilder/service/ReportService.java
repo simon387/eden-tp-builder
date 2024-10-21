@@ -236,6 +236,9 @@ public class ReportService {
 					case ToAEnum.SPELL_RANGE:
 						spellRange += (short) t.getValue ();
 						break;
+					case ToAEnum.DEBUFF_EFFECTIVENESS:
+						debuffEffectiveness += (short) t.getValue ();
+						break;
 					}
 					//TODO ne mancano...
 				}

@@ -1,1 +1,4 @@
+Version 1.0.1 Alpha
+- added a toa bonus
+
 Version 1.0.0 Alpha
