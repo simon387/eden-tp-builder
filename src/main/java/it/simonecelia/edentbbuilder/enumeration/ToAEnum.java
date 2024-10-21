@@ -11,6 +11,7 @@ public enum ToAEnum {
 	MELEE_DAMAGE ( "Melee Damage" ),
 	SPELL_RANGE ( "Spell Range" ),
 	SPELL_LEVEL ( "Spell Level" ),
+	DEBUFF_EFFECTIVENESS ( "Debuff Effectiveness" ),
 	;
 
 	private final String name;
