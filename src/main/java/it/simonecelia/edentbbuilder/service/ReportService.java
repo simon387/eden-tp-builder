@@ -85,20 +85,29 @@ public class ReportService {
 
 		//TODO solo 2H
 		List<MagicalBonuses> totalMagicalBonuses = new ArrayList<> ();
-		totalMagicalBonuses.add ( character.getArms ().getMagicalBonuses () );
+		if ( null != character.getArms () ) {
+			totalMagicalBonuses.add ( character.getArms ().getMagicalBonuses () );
+		}
 		totalMagicalBonuses.add ( character.getChest ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getCloak ().getMagicalBonuses () );
 		//		totalMagicalBonuses.add ( character.getDistance ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getBelt ().getMagicalBonuses () );
-		totalMagicalBonuses.add ( character.getFeet ().getMagicalBonuses () );
-		totalMagicalBonuses.add ( character.getHands ().getMagicalBonuses () );
+		if ( null != character.getFeet () ) {
+			totalMagicalBonuses.add ( character.getFeet ().getMagicalBonuses () );
+		}
+		if ( null != character.getHands () ) {
+			totalMagicalBonuses.add ( character.getHands ().getMagicalBonuses () );
+		}
+
 		totalMagicalBonuses.add ( character.getHelm ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getJewel ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getlBracer ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getrBracer ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getlRing ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getrRing ().getMagicalBonuses () );
-		totalMagicalBonuses.add ( character.getLegs ().getMagicalBonuses () );
+		if ( null != character.getLegs () ) {
+			totalMagicalBonuses.add ( character.getLegs ().getMagicalBonuses () );
+		}
 		totalMagicalBonuses.add ( character.getMythirian ().getMagicalBonuses () );
 		totalMagicalBonuses.add ( character.getNecklace ().getMagicalBonuses () );
 		//		totalMagicalBonuses.add ( character.getOffHand ().getMagicalBonuses () );
