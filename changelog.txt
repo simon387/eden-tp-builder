@@ -1,3 +1,6 @@
+Version 1.0.2 Alpha
+- fix nullpointers
+
 Version 1.0.1 Alpha
 - added a toa bonus
 

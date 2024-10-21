@@ -1,2 +1,4 @@
 GET {{baseURL}}report/character/51
 
+###
+GET {{baseURL}}report/character/151
