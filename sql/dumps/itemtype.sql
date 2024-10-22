@@ -1,0 +1,9 @@
+INSERT INTO eden_tp_builder.itemtype (id, type) VALUES (1, 'Scale');
+INSERT INTO eden_tp_builder.itemtype (id, type) VALUES (2, 'Chain');
+INSERT INTO eden_tp_builder.itemtype (id, type) VALUES (3, 'Cloth');
+INSERT INTO eden_tp_builder.itemtype (id, type) VALUES (4, 'Hammer');
+INSERT INTO eden_tp_builder.itemtype (id, type) VALUES (5, 'Blunt');
+INSERT INTO eden_tp_builder.itemtype (id, type) VALUES (6, 'Crushing');
+INSERT INTO eden_tp_builder.itemtype (id, type) VALUES (7, 'Studded');
+INSERT INTO eden_tp_builder.itemtype (id, type) VALUES (8, 'Staff');
+INSERT INTO eden_tp_builder.itemtype (id, type) VALUES (9, 'Magical');

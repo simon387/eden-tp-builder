@@ -1,0 +1,17 @@
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (1, 'Chest');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (2, 'Right Hand');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (3, 'Jewel');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (4, 'Two Handed');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (5, 'Legs');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (6, 'Left Hand');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (7, 'Arms');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (8, 'Helm');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (9, 'Belt');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (10, 'Gloves');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (11, 'Cloak');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (12, 'Mythirian');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (13, 'Necklace');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (14, 'Bracer');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (15, 'Ring');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (16, 'Boots');
+INSERT INTO eden_tp_builder.slot (id, slot) VALUES (17, 'Distance');
