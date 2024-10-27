@@ -6,6 +6,8 @@ public enum CaPBonusEnum {
 	POWER_POOL ( "Power Pool" ),
 	MAX_HEALTH ( "Max Health" ),
 	CONSTITUTION ( "Constitution" ),
+	STRENGTH ( "Strength" ),
+	QUICKNESS ( "Quickness" ),
 	;
 
 	private final String name;

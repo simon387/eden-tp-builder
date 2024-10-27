@@ -1,0 +1,117 @@
+### l'xml si scarica dal sito di eden
+POST {{baseURL}}item/xml
+Content-Type: application/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SCItem>
+	<ActiveState>drop</ActiveState>
+	<Location>Chest</Location>
+	<Realm>All</Realm>
+	<ItemName>Wintery Seeker's Vest</ItemName>
+	<Bonus>0</Bonus>
+	<ItemQuality>100</ItemQuality>
+	<Equipped>1</Equipped>
+	<Level>51</Level>
+	<OFFHAND>no</OFFHAND>
+	<SOURCE>drop</SOURCE>
+	<TYPE>unspecified</TYPE>
+	<DAMAGETYPE>None</DAMAGETYPE>
+	<Speed>5</Speed>
+	<DBSOURCE>EDEN</DBSOURCE>
+	<CLASSRESTRICTIONS>
+		<CLASS>All</CLASS>
+	</CLASSRESTRICTIONS>
+	<SOURCE>drop</SOURCE>
+	<DROPITEM>
+		<SLOT Number="0">
+			<Remakes>0</Remakes>
+			<Effect>Constitution</Effect>
+			<Qua>99</Qua>
+			<Amount>25</Amount>
+			<Done>0</Done>
+			<Time>0</Time>
+			<Type>Stat</Type>
+		</SLOT>
+		<SLOT Number="1">
+			<Remakes>0</Remakes>
+			<Effect>Crush Resist</Effect>
+			<Qua>99</Qua>
+			<Amount>3</Amount>
+			<Done>0</Done>
+			<Time>0</Time>
+			<Type>Resist</Type>
+		</SLOT>
+		<SLOT Number="2">
+			<Remakes>0</Remakes>
+			<Effect>Slash Resist</Effect>
+			<Qua>99</Qua>
+			<Amount>3</Amount>
+			<Done>0</Done>
+			<Time>0</Time>
+			<Type>Resist</Type>
+		</SLOT>
+		<SLOT Number="3">
+			<Remakes>0</Remakes>
+			<Effect>Thrust Resist</Effect>
+			<Qua>99</Qua>
+			<Amount>3</Amount>
+			<Done>0</Done>
+			<Time>0</Time>
+			<Type>Resist</Type>
+		</SLOT>
+		<SLOT Number="4">
+			<Remakes>0</Remakes>
+			<Effect>Stealth</Effect>
+			<Qua>99</Qua>
+			<Amount>4</Amount>
+			<Done>0</Done>
+			<Time>0</Time>
+			<Type>Skill</Type>
+		</SLOT>
+		<SLOT Number="5">
+			<Remakes>0</Remakes>
+			<Effect>All Melee Skill Bonus</Effect>
+			<Qua>99</Qua>
+			<Amount>4</Amount>
+			<Done>0</Done>
+			<Time>0</Time>
+			<Type>Skill</Type>
+		</SLOT>
+		<SLOT Number="6">
+			<Remakes>0</Remakes>
+			<Effect>Melee Damage Bonus</Effect>
+			<Qua>99</Qua>
+			<Amount>4</Amount>
+			<Done>0</Done>
+			<Time>0</Time>
+			<Type>Other Bonus</Type>
+		</SLOT>
+		<SLOT Number="7">
+			<Remakes>0</Remakes>
+			<Effect>Spell Damage Bonus</Effect>
+			<Qua>99</Qua>
+			<Amount>4</Amount>
+			<Done>0</Done>
+			<Time>0</Time>
+			<Type>Other Bonus</Type>
+		</SLOT>
+		<SLOT Number="8">
+			<Remakes>0</Remakes>
+			<Effect>Style Damage Bonus</Effect>
+			<Qua>99</Qua>
+			<Amount>4</Amount>
+			<Done>0</Done>
+			<Time>0</Time>
+			<Type>Other Bonus</Type>
+		</SLOT>
+		<SLOT Number="9">
+			<Remakes>0</Remakes>
+			<Effect>Dexterity</Effect>
+			<Qua>99</Qua>
+			<Amount>6</Amount>
+			<Done>0</Done>
+			<Time>0</Time>
+			<Type>Cap Increase</Type>
+		</SLOT>
+	</DROPITEM>
+</SCItem>

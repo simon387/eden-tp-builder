@@ -2,6 +2,7 @@ package it.simonecelia.edentbbuilder.controller;
 
 import io.quarkus.logging.Log;
 import it.simonecelia.edentbbuilder.dto.ItemDTO;
+import it.simonecelia.edentbbuilder.dto.loki.SCItem;
 import it.simonecelia.edentbbuilder.entity.Item;
 import it.simonecelia.edentbbuilder.service.ItemService;
 import jakarta.inject.Inject;
@@ -68,5 +69,19 @@ public class ItemController {
 		} else {
 			return Response.status ( Response.Status.NOT_FOUND ).build ();
 		}
+	}
+
+	@POST
+	@Path ( "/xml" )
+	@Produces ( MediaType.APPLICATION_JSON )
+	@Consumes ( MediaType.APPLICATION_XML )
+	public Response createItemFromXml ( SCItem scItem ) {
+		Log.info ( "Received item in XML format" );
+		var createdItem = itemService.createFromXml ( scItem );
+		if ( null == createdItem ) {
+			return Response.status ( Response.Status.BAD_REQUEST ).build ();
+		}
+
+		return Response.status ( Response.Status.CREATED ).entity ( createdItem ).build ();
 	}
 }

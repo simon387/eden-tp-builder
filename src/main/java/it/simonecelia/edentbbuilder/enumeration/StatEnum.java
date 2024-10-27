@@ -6,6 +6,10 @@ public enum StatEnum {
 	CONSTITUTION ( "Constitution" ),
 	ACUITY ( "Acuity" ),
 	ARMOR_FACTOR ( "Armor Factor" ),
+	STRENGTH ( "Strength" ),
+	PIETY ( "Pietty" ),
+	INTELLIGENCE ( "Intelligence" ),
+	QUICKNESS ( "Quickness" ),
 	;
 
 	private final String name;
