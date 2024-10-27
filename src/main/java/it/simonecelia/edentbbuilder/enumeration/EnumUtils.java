@@ -8,7 +8,7 @@ import java.util.List;
 public class EnumUtils {
 
 	public static <E extends Enum<E>> E fromStringIgnoreCase ( Class<E> enumClass, String name ) {
-		for ( E enumConstant : enumClass.getEnumConstants () ) {
+		for ( var enumConstant : enumClass.getEnumConstants () ) {
 			try {
 				// Usa la riflessione per chiamare il metodo getName() su ogni enum
 				var enumName = (String) enumClass.getMethod ( "getName" ).invoke ( enumConstant );
@@ -25,7 +25,7 @@ public class EnumUtils {
 	public static <E extends Enum<E>> List<String> getEnumNames ( Class<E> enumClass ) {
 		List<String> names = new ArrayList<> ();
 
-		for ( E enumConstant : enumClass.getEnumConstants () ) {
+		for ( var enumConstant : enumClass.getEnumConstants () ) {
 			try {
 				// Usa la riflessione per chiamare il metodo getName() su ogni enum
 				var getNameMethod = enumClass.getMethod ( "getName" );

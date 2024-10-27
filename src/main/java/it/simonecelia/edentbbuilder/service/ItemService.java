@@ -1,6 +1,7 @@
 package it.simonecelia.edentbbuilder.service;
 
 import it.simonecelia.edentbbuilder.dto.ItemDTO;
+import it.simonecelia.edentbbuilder.dto.loki.SCItem;
 import it.simonecelia.edentbbuilder.entity.Item;
 import it.simonecelia.edentbbuilder.enumeration.CaPBonusEnum;
 import it.simonecelia.edentbbuilder.enumeration.EnumUtils;
@@ -150,5 +151,9 @@ public class ItemService {
 	@Transactional
 	public boolean delete ( Long id ) {
 		return Item.deleteById ( id );
+	}
+
+	public Object createFromXml ( SCItem scItem ) {
+		return null;
 	}
 }

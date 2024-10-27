@@ -3,6 +3,9 @@ package it.simonecelia.edentbbuilder.enumeration;
 public enum MagicEnum {
 
 	ALL_SKILLS ( "All Skills" ),
+	VERDANT ( "Verdant" ),
+	CREEPING ( "Creeping" ),
+	STEALTH ( "Stealth" ),
 	;
 
 	private final String name;
