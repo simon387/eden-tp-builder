@@ -1,3 +1,6 @@
+###
+GET {{baseURL}}item/251
+
 ### l'xml si scarica dal sito di eden
 POST {{baseURL}}item/xml
 Content-Type: application/xml
