@@ -62,7 +62,7 @@ public class ItemService {
 	public Item create ( ItemDTO itemDTO ) {
 		if ( getByName ( itemDTO.getName () ) != null ) {
 			Log.error ( "Item alredy inserted!" );
-			return null;
+			//			return null;
 		}
 		var item = new Item ();
 		item.setBonusLevel ( itemDTO.getBonusLevel () );
@@ -148,7 +148,11 @@ public class ItemService {
 		item.setTradeable ( itemDTO.isTradeable () );
 		item.setUtility ( itemDTO.getUtility () );
 
-		item.setRealm ( realmService.getByName ( itemDTO.getRealm () ) );
+		var realm = itemDTO.getRealm ();
+		if ( realm.equalsIgnoreCase ( "all" ) ) {
+			realm = "any";
+		}
+		item.setRealm ( realmService.getByName ( realm ) );
 		item.setSlot ( slotService.getByName ( itemDTO.getSlot () ) );
 		item.setType ( itemTypeService.getByName ( itemDTO.getType () ) );
 

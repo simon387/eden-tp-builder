@@ -1,3 +1,6 @@
+Version 1.2.2 Alpha
+- fixed realm selection on loki item
+
 Version 1.2.1 Alpha
 - added log
 - fix item xml conversion
