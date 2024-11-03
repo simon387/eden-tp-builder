@@ -14,6 +14,7 @@ public enum ToAEnum {
 	DEBUFF_EFFECTIVENESS ( "Debuff Effectiveness" ),
 	MELEE_SPEED ( "Melee Speed" ),
 	FATIGUE ( "Fatigue" ),
+	STYLE_DAMAGE ( "Style Damage" ),
 	;
 
 	private final String name;

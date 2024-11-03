@@ -1,6 +1,12 @@
 package it.simonecelia.edentbbuilder.service;
 
+import it.simonecelia.edentbbuilder.dto.CapBonusDTO;
 import it.simonecelia.edentbbuilder.dto.ItemDTO;
+import it.simonecelia.edentbbuilder.dto.MagicDTO;
+import it.simonecelia.edentbbuilder.dto.MeleeDTO;
+import it.simonecelia.edentbbuilder.dto.ResistDTO;
+import it.simonecelia.edentbbuilder.dto.StatDTO;
+import it.simonecelia.edentbbuilder.dto.ToADTO;
 import it.simonecelia.edentbbuilder.dto.loki.SCItem;
 import it.simonecelia.edentbbuilder.entity.Item;
 import it.simonecelia.edentbbuilder.enumeration.CaPBonusEnum;
@@ -91,7 +97,7 @@ public class ItemService {
 			}
 			magicalBonuses.setMelees ( melees );
 		}
-		if ( !itemDTO.getOthers ().isEmpty () ) {
+		if ( null != itemDTO.getOthers () && !itemDTO.getOthers ().isEmpty () ) {
 			List<Other> others = new ArrayList<> ();
 			for ( var otherDTO : itemDTO.getOthers () ) {
 				var other = new Other ();
@@ -153,7 +159,86 @@ public class ItemService {
 		return Item.deleteById ( id );
 	}
 
-	public Object createFromXml ( SCItem scItem ) {
-		return null;
+	public Item createFromXml ( SCItem scItem ) {
+		var item = new ItemDTO ();
+		item.setLevel ( scItem.getLevel () );
+		item.setName ( scItem.getItemName () );
+		item.setSlot ( scItem.getLocation () );
+		item.setRealm ( scItem.getRealm () );
+		for ( var s : scItem.getDropItem ().getSlots () ) {
+			switch ( s.getType () ) {
+			case "Stat":
+				if ( item.getStats () == null ) {
+					item.setStats ( new ArrayList<> () );
+				}
+				var stat = new StatDTO ();
+				stat.setStat ( s.getEffect () );
+				stat.setValue ( (short) s.getAmount () );
+				item.getStats ().add ( stat );
+				break;
+			case "Resist":
+				if ( item.getResists () == null ) {
+					item.setResists ( new ArrayList<> () );
+				}
+				var resist = new ResistDTO ();
+				resist.setResist ( s.getEffect ().replace ( " Resist", "" ) );
+				resist.setValue ( (short) s.getAmount () );
+				item.getResists ().add ( resist );
+				break;
+			case "Skill":
+				switch ( s.getEffect () ) {
+				case "Stealth":
+					if ( item.getMagics () == null ) {
+						item.setMagics ( new ArrayList<> () );
+					}
+					var skill = new MagicDTO ();
+					skill.setMagic ( s.getEffect () );
+					skill.setValue ( (short) s.getAmount () );
+					item.getMagics ().add ( skill );
+					break;
+				case "All Melee Skill Bonus":
+					if ( item.getMelees () == null ) {
+						item.setMelees ( new ArrayList<> () );
+					}
+					var meleeSkill = new MeleeDTO ();
+					meleeSkill.setMelee ( "All Skills" );
+					meleeSkill.setValue ( (short) s.getAmount () );
+					item.getMelees ().add ( meleeSkill );
+					break;
+				default:
+					throw new RuntimeException ( "Develop this" );
+				}
+				break;
+			case "Other Bonus":
+				switch ( s.getEffect () ) {
+				case "Melee Damage Bonus":
+				case "Spell Damage Bonus":
+				case "Style Damage Bonus":
+					if ( item.getToas () == null ) {
+						item.setToas ( new ArrayList<> () );
+					}
+					var toa = new ToADTO ();
+					toa.setToa ( s.getEffect ().replace ( " Bonus", "" ) );
+					toa.setValue ( (short) s.getAmount () );
+					item.getToas ().add ( toa );
+					break;
+				default:
+					throw new RuntimeException ( "Develop this 3" );
+				}
+				break;
+			case "Cap Increase":
+				if ( item.getCapBonuses () == null ) {
+					item.setCapBonuses ( new ArrayList<> () );
+				}
+				var cap = new CapBonusDTO ();
+				cap.setCapBonus ( s.getEffect () );
+				cap.setValue ( (short) s.getAmount () );
+				item.getCapBonuses ().add ( cap );
+				break;
+			default:
+				throw new RuntimeException ( "Develop this too" );
+			}
+		}
+		return create ( item );
 	}
 }
