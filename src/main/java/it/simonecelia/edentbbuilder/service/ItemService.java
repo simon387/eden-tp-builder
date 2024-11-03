@@ -1,5 +1,6 @@
 package it.simonecelia.edentbbuilder.service;
 
+import io.quarkus.logging.Log;
 import it.simonecelia.edentbbuilder.dto.CapBonusDTO;
 import it.simonecelia.edentbbuilder.dto.ItemDTO;
 import it.simonecelia.edentbbuilder.dto.MagicDTO;
@@ -60,6 +61,7 @@ public class ItemService {
 	@Transactional
 	public Item create ( ItemDTO itemDTO ) {
 		if ( getByName ( itemDTO.getName () ) != null ) {
+			Log.error ( "Item alredy inserted!" );
 			return null;
 		}
 		var item = new Item ();
@@ -107,7 +109,7 @@ public class ItemService {
 			}
 			magicalBonuses.setOthers ( others );
 		}
-		if ( !itemDTO.getResists ().isEmpty () ) {
+		if ( null != itemDTO.getResists () && !itemDTO.getResists ().isEmpty () ) {
 			List<Resist> resists = new ArrayList<> ();
 			for ( var resistDTO : itemDTO.getResists () ) {
 				var resist = new Resist ();
@@ -205,6 +207,15 @@ public class ItemService {
 					meleeSkill.setValue ( (short) s.getAmount () );
 					item.getMelees ().add ( meleeSkill );
 					break;
+				case "All Magic Skill Bonus":
+					if ( item.getMagics () == null ) {
+						item.setMagics ( new ArrayList<> () );
+					}
+					var magicSkill = new MagicDTO ();
+					magicSkill.setMagic ( "All Skills" );
+					magicSkill.setValue ( (short) s.getAmount () );
+					item.getMagics ().add ( magicSkill );
+					break;
 				default:
 					throw new RuntimeException ( "Develop this" );
 				}
@@ -214,6 +225,8 @@ public class ItemService {
 				case "Melee Damage Bonus":
 				case "Spell Damage Bonus":
 				case "Style Damage Bonus":
+				case "Melee Speed Bonus":
+				case "Casting Speed Bonus":
 					if ( item.getToas () == null ) {
 						item.setToas ( new ArrayList<> () );
 					}

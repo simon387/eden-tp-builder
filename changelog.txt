@@ -1,3 +1,7 @@
+Version 1.2.1 Alpha
+- added log
+- fix item xml conversion
+
 Version 1.2.0 Alpha
 - enabled item upload from xml
 
