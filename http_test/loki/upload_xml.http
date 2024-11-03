@@ -1,5 +1,5 @@
 ###
-GET {{baseURL}}item/251
+GET {{baseURL}}item/301
 
 ### l'xml si scarica dal sito di eden
 POST {{baseURL}}item/xml
